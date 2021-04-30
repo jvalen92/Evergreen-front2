@@ -11,7 +11,7 @@ export class RegistrarOrdenComponent implements OnInit {
 
   order: FormGroup;
   submitted = false;
-  titulo = 'Crear un Formulario con Angular 7 y Bootstrap 4 + Validación';
+  titulo = 'Registrar orden';
   loading: false;
 
   constructor(private formBuilder: FormBuilder, private service: RestApiService) { }
