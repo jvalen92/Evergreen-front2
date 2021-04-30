@@ -1,0 +1,97 @@
+<div class="container">
+
+    <div class="starter-template">
+  
+      <div class="row">
+  
+        <div class="col-md-12 mt-5">
+  
+          <h1>{{ titulo }} </h1>
+  
+          <form [formGroup]="order" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Cliente</label>
+              <input type="text" formControlName="nya" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.nya.errors }" />
+              <div *ngIf="submitted && f.nya.errors" class="invalid-feedback">
+                <div *ngIf="f.nya.errors.required">Por favor, ingresa el nombre del cliente</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Fecha de entrega</label>
+              <input type="text" formControlName="fechaEntrega" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.fechaEntrega.errors }" />
+              <div *ngIf="submitted && f.fechaEntrega.errors" class="invalid-feedback">
+                <div *ngIf="f.fechaEntrega.errors.required">Por favor, ingresa la fecha de entrega</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Fecha de salida</label>
+              <input type="text" formControlName="fechaSalida" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.fechaSalida.errors }" />
+              <div *ngIf="submitted && f.fechaSalida.errors" class="invalid-feedback">
+                <div *ngIf="f.fechaSalida.errors.required">Por favor, ingresa la fecha de salida</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="producto"> Producto</label>
+              <select class="form-control" formControlName="producto"
+                [ngClass]="{ 'is-invalid': submitted && f.producto.errors }">
+                <option value="producto-1">producto-1</option>
+                <option value="Maiz">Maíz</option>
+                <option value="Zanahoria">Zanahoria</option>
+                <option value="Lechuga">Lechuga</option>
+                <option value="Tomate">Tomate</option>
+               
+              </select>
+              <div *ngIf="submitted && f.producto.errors" class="invalid-feedback">
+                <div *ngIf="f.producto.errors.required">Por favor, Selecciona el país</div>
+              </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <label for="pais"> Pais</label>
+              <select class="form-control" formControlName="pais"
+                [ngClass]="{ 'is-invalid': submitted && f.pais.errors }">
+                <option value="">Seleccionar</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Canadá">Canadá</option>
+                <option value="China">China</option>
+                <option value="Inglaterra">Inglaterra</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+  
+              </select>
+              <div *ngIf="submitted && f.pais.errors" class="invalid-feedback">
+                <div *ngIf="f.pais.errors.required">Por favor, Selecciona el país</div>
+              </div>
+            </div>
+            
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea class="form-control" formControlName="mensaje" rows="3"
+                [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
+              <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+                <div *ngIf="f.mensaje.errors.required">Por favor, ingresa el Mensaje ( 6 Caracteres mínimo )</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">Aceptar</button>
+            </div>
+  
+          </form>
+  
+        </div>
+  
+  
+      </div>
+  
+    </div>
+  
+  </div>
