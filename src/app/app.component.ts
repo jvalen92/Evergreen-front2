@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder , Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -7,39 +7,23 @@ import { FormGroup, FormControl, FormBuilder , Validators } from '@angular/forms
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+   mostrar_orden : boolean = true;
+   mostrar_transporte : boolean = false;
 
-
-  order: FormGroup;
-  submitted = false;
-  titulo = 'Crear un Formulario con Angular 7 y Bootstrap 4 + Validación';
-  loading : false;
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    this.order = this.formBuilder.group({
-      nya: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      asunto: ['', Validators.required],
-      postre: ['', Validators.required],
-      mensaje: ['', [Validators.required, Validators.minLength(6)]]
-    });
+
   }
 
-  get f() { return this.order.controls; }
+  ordenar(){
+    this.mostrar_orden = true;
+    this.mostrar_transporte= false;
+  }
 
-  onSubmit() {
-    this.submitted = true;
- 
-        if (this.order.invalid) {
-            return;
-        }
-
-        console.log(this.order.value.email);
-        
- 
-        alert('Mensaje Enviado !')
-
+  transporte(){
+    this.mostrar_orden = false;
+    this.mostrar_transporte = true;
   }
 
 }

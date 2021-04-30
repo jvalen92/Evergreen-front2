@@ -1,1 +1,68 @@
-<p>transporte works!</p>
+<div class="container">
+
+    <div class="starter-template">
+  
+      <div class="row">
+  
+        <div class="col-md-12 mt-5">
+  
+          <h1>{{ titulo }} </h1>
+  
+          <form [formGroup]="ruta" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Origen</label>
+              <input type="text" formControlName="origen" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.origen.errors }" />
+              <div *ngIf="submitted && f.origen.errors" class="invalid-feedback">
+                <div *ngIf="f.origen.errors.required">Por favor, ingresa el origen</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Destino</label>
+              <input type="text" formControlName="destino" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.destino.errors }" />
+              <div *ngIf="submitted && f.destino.errors" class="invalid-feedback">
+                <div *ngIf="f.destino.errors.required">Por favor, ingresa el nombre del cliente</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="transporte"> Transporte</label>
+              <select class="form-control" formControlName="transporte"
+                [ngClass]="{ 'is-invalid': submitted && f.transporte.errors }">
+                <option value="Aereo">Aereo</option>
+                <option value="Terrestre">Terrestre</option>
+                <option value="Acuatico">Acuatico</option>
+               
+              </select>
+              <div *ngIf="submitted && f.transporte.errors" class="invalid-feedback">
+                <div *ngIf="f.transporte.errors.required">Por favor, Selecciona el transporte</div>
+              </div>
+            </div>
+            
+
+            <div class="form-group">
+              <label for="mensaje">Observaccion</label>
+              <textarea class="form-control" formControlName="mensaje" rows="3"
+                [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
+              <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+                <div *ngIf="f.mensaje.errors.required">Por favor, ingresa el Mensaje ( 6 Caracteres mínimo )</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">Aceptar</button>
+            </div>
+  
+          </form>
+
+          <h2>{{ruta_calculada}}</h2>
+  
+        </div>
+  
+  
+      </div>
+  
+    </div>
+  
+  </div>

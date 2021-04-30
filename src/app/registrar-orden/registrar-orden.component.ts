@@ -36,8 +36,6 @@ export class RegistrarOrdenComponent implements OnInit {
       return;
     }
 
-    
-
     var body = {
       "fechaEntrega": {
         "S": this.order.value.fechaEntrega
@@ -58,6 +56,9 @@ export class RegistrarOrdenComponent implements OnInit {
 
     this.service.enviarOrden(body).subscribe(resp => {
       console.log(resp);
+      alert("Su orden ha sido creada con exito");
+    }, (error) => {
+      console.log(error.status);
     })
 
   }
