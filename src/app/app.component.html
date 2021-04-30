@@ -1,11 +1,20 @@
-<div class="row">
-    
-    <div class="col-12">
-        <h1>Bienvenido a Evergreen</h1>
-        <button  class="btn btn-primary btn-lg" (click)="ordenar()">Registrar Orden</button>
-        <button  class="btn btn-success btn-lg" (click)="transporte()">Solicitar transporte</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h1>Bienvenido a Evergreen</h1>
+            <div class="row justify-content-around">
+                <div class="col-auto">
+                    <button class="btn btn-primary btn-lg" (click)="ordenar()">Registrar Orden</button>
+                    <button class="btn btn-success btn-lg" (click)="transporte()">Solicitar transporte</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
 
 
 <app-registrar-orden *ngIf="mostrar_orden"></app-registrar-orden>
